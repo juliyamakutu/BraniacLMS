@@ -1,0 +1,7 @@
+services:
+   braniaclms:
+      image: local/braniaclms:latest
+      ports:
+         - 8000:8000
+      volumes:
+         - .:/app/
