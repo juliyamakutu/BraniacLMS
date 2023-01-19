@@ -18,5 +18,7 @@ show_migrations:	## показать миграции
 full_migrations: makemigrations migrate	## создать и выполнить миграции
 logs:	## отобразить логи (выход по ctrl+c)
 	docker-compose logs -f
+status:	## посмотреть статус контейнеров
+	docker-compose ps
 help:	## эта справка
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
