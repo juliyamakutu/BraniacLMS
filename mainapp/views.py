@@ -28,6 +28,15 @@ class NewsPageDetailView(TemplateView):
         return context
 
 
+class NewsPageDetailView(TemplateView):
+    template_name = "mainapp/news_detail.html"
+
+    def get_context_data(self, pk=None, **kwargs):
+        context = super().get_context_data(pk=pk, **kwargs)
+        context["news_object"] = get_object_or_404(mainapp_models.News, pk=pk)
+        return context
+
+
 class CoursesListView(TemplateView):
     template_name = "mainapp/courses_list.html"
 
@@ -58,4 +67,4 @@ class DocSitePageView(TemplateView):
 
 class LoginPageView(TemplateView):
     template_name = "mainapp/login.html"
-    
+
