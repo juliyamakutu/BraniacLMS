@@ -40,3 +40,4 @@ wcwidth==0.2.6
 webencodings==0.5.1
 zipp==3.11.0
 social-auth-app-django==5.0.0
+django-crispy-forms==1.14.0
