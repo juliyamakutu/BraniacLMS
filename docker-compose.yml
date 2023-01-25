@@ -13,5 +13,12 @@ services:
          dockerfile: ./Dockerfile.celery
       volumes:
          - .:/app/
+   mailhog:
+      image: mailhog/mailhog
+      ports:
+         - 1025:1025
+         - 8025:8025
    redis:
       image: redis:latest
+      expose:
+         - 6379
