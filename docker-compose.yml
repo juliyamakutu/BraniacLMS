@@ -1,8 +1,16 @@
 services:
    braniaclms:
       image: local/braniaclms:latest
+      build:
+         dockerfile: ./Dockerfile.django
       ports:
          - 8000:8000
+      volumes:
+         - .:/app/
+   celery:
+      image: local/braniac_celery:latest
+      build:
+         dockerfile: ./Dockerfile.celery
       volumes:
          - .:/app/
    redis:

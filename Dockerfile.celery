@@ -1,0 +1,8 @@
+FROM --platform=linux/x86_64 python:3.9-slim
+
+ADD requirments.txt /tmp/
+RUN pip install -r /tmp/requirments.txt
+
+WORKDIR /app
+
+CMD [ "celery", "-A", "config", "worker", "-l", "INFO" ]
