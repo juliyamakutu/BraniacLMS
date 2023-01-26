@@ -1,7 +1,24 @@
 services:
    braniaclms:
       image: local/braniaclms:latest
+      build:
+         dockerfile: ./Dockerfile.django
       ports:
          - 8000:8000
       volumes:
          - .:/app/
+   celery:
+      image: local/braniac_celery:latest
+      build:
+         dockerfile: ./Dockerfile.celery
+      volumes:
+         - .:/app/
+   mailhog:
+      image: mailhog/mailhog
+      ports:
+         - 1025:1025
+         - 8025:8025
+   redis:
+      image: redis:latest
+      expose:
+         - 6379

@@ -1,5 +1,5 @@
 build:	## пересобирает контейнер
-	docker build -t local/braniaclms .
+	docker-compose build
 up:	## запустить контейнер с дажнго
 	docker-compose up -d
 down:	## остановить контейнер с джанго
