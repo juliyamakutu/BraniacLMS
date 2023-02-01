@@ -13,6 +13,10 @@ services:
          dockerfile: ./Dockerfile.celery
       volumes:
          - .:/app/
+   firefox:
+      image: selenium/standalone-firefox:4.8.0-20230123
+      ports:
+         - 7900:7900
    mailhog:
       image: mailhog/mailhog
       ports:

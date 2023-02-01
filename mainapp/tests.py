@@ -137,6 +137,7 @@ class TestTaskMailSend(TestCase):
 
 from django.conf import settings
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
@@ -149,10 +150,15 @@ class TestNewsSelenium(StaticLiveServerTestCase):
         "authapp/fixtures/001_user_admin.json",
         "mainapp/fixtures/001_news.json",
     )
+    live_server_url = "http://braniaclms:8000"
 
     def setUp(self):
         super().setUp()
-        self.selenium = WebDriver(executable_path=settings.SELENIUM_DRIVER_PATH_FF)
+        # self.selenium = WebDriver(executable_path=settings.SELENIUM_DRIVER_PATH_FF)
+        self.selenium = webdriver.Remote(
+            command_executor='http://firefox:4444/wd/hub',
+            options=webdriver.FirefoxOptions(),
+        )
         self.selenium.implicitly_wait(10)
         # Login
         self.selenium.get(f"{self.live_server_url}{reverse('authapp:login')}")
@@ -199,4 +205,3 @@ class TestNewsSelenium(StaticLiveServerTestCase):
         # Close browser
         self.selenium.quit()
         super().tearDown()
-                
