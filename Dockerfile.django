@@ -1,5 +1,7 @@
 FROM --platform=linux/x86_64 python:3.9-slim
 
+RUN apt update && apt install -y --no-install-recommends locales gettext; rm -rf /var/lib/apt/lists/*; sed -i '/^#.* ru_RU.UTF-8 /s/^#//' /etc/locale.gen; locale-gen
+
 ADD requirments.txt /tmp/
 RUN pip install -r /tmp/requirments.txt
 
