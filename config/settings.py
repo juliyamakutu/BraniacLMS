@@ -277,4 +277,5 @@ EMAIL_PORT = "1025"
 
 LOCALE_PATHS = [BASE_DIR / "locale"]
 
-SELENIUM_DRIVER_PATH_FF = BASE_DIR / "var" / "selenium" / "geckodriver"
+# SELENIUM_DRIVER_PATH_FF = BASE_DIR / "var" / "selenium" / "geckodriver"
+SELENIUM_DRIVER_PATH_FF = "http://firefox:4444"
